@@ -5,7 +5,7 @@
 - Git clone the repository to your local machine.
 
 ```
-git clone git@github.com:yellhtetaung/zen-dotfiles.git
+git clone https://github.com/yellhtetaung/zen-dotfiles.git
 ```
 
 - Navigate to the cloned repository directory.
