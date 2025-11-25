@@ -70,6 +70,33 @@ source ~/.zprofile
 | rnpodinstall | Install react native pod dependencies            |
 | podinstall   | Install pod dependencies                         |
 
+### Usage of podinstall
+
+- Install iOS pod dependencies without cleaning and not change the new architecture flag.
+
+```bash
+podinstall
+```
+
+- Install iOS pod dependencies with cleaning and not change the new architecture flag.
+
+```bash
+podinstall --mode=clean
+```
+
+- Install iOS pod dependencies with cleaning and change the new architecture flag to true.
+
+```bash
+podinstall --mode=clean --arch=true
+```
+
+- Install iOS pod dependencies with cleaning and change the new architecture flag to false.
+
+```bash
+podinstall --mode=clean --arch=false
+```
+
+
 ## Contributing
 
 Contributions are welcome! If you have any suggestions, improvements, or bug fixes, please open an issue or submit a pull request.
