@@ -8,6 +8,7 @@ alias ll='ls -lG'
 alias lsa='ls -lAG'
 
 # Git Aliases
+alias g='git'
 alias gs='git status'
 alias gp='git pull'
 alias gc='git commit'
@@ -22,4 +23,4 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # Common Commands
-alias load="source $HOME/.zprofile"
+alias load='source $HOME/.zprofile'
