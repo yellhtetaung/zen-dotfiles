@@ -45,11 +45,11 @@ podinstall() {
         mode="$1"
         ;;
       --arch=*)
-      case "${1#--arch=}" in
+        case "${1#--arch=}" in
           true) enableNewArch=true ;;
           false) enableNewArch=false ;;
           default) enableNewArch="" ;;
-          *) echo "Invalid --arch value: ${1#--arch=}" ;;
+          *) echo -e "${red}Invalid --arch value: ${1#--arch=}.${reset}" ;;
         esac
         ;;
       true|false|default)
@@ -68,7 +68,7 @@ podinstall() {
     return 1
   fi
 
-  echo "Running post-installation tasks..."
+  echo -e "${blue}Running post-installation tasks...${reset}"
 
   # Checking the current directory to be in the iOS project directory or navigate to the ios directory if it exists
   # If the current path in the ios directory, continue
@@ -85,7 +85,7 @@ podinstall() {
   # Checking the Podfile to install dependencies
   # The error message will be shown when the Podfile is not found
   if [[ -f Podfile ]]; then
-    echo "Podfile found."
+    echo -e "${blue}Podfile found.${reset}"
   else
     echo -e "${red}No Podfile found in the current directory. Exiting.${reset}"
     return 1
@@ -96,7 +96,7 @@ podinstall() {
   # If the mode is skip-clean, the script will skip cleaning of Pods and Podfile.lock
   # If the mode is default, the script will perform default clean of Pods and Podfile.lock
   if [[ "$mode" == "clean" ]]; then
-    echo "Performing full clean of Pods and Podfile.lock..."
+    echo -e "${blue}Performing full clean of Pods and Podfile.lock...${reset}"
     pod cache clean --all && pod deintegrate
 
     if [[ -d 'Pods' ]]; then
@@ -111,9 +111,9 @@ podinstall() {
       rm Podfile.lock || exit
     fi
   elif [[ "$mode" == "skip-clean" ]]; then
-    echo "Skipping cleaning of Pods and Podfile.lock as per user request."
+    echo -e "${blue}Skipping cleaning of Pods and Podfile.lock as per user request.${reset}"
   else
-    echo "Cleaning Pods and Podfile.lock..."
+    echo -e "${blue}Cleaning Pods and Podfile.lock...${reset}"
     pod deintegrate
 
     if [[ -d 'Pods' ]]; then
@@ -134,16 +134,16 @@ podinstall() {
   # If the setting is false, the script will disable New Architecture in Podfile
   # If the setting is default, the script will leave Podfile unchanged
   if [[ $enableNewArch == true ]]; then
-    echo "Enabling New Architecture settings in Podfile..."
+    echo -e "${blue}Enabling New Architecture settings in Podfile...${reset}"
     sed -i '' 's/# enableNewArch: false/enableNewArch: true/g' Podfile
   elif [[ $enableNewArch == false ]]; then
-    echo "Disabling New Architecture settings in Podfile..."
+    echo -e "${blue}Disabling New Architecture settings in Podfile...${reset}"
     sed -i '' 's/enableNewArch: true/# enableNewArch: false/g' Podfile
   else
-    echo "No changes made to New Architecture settings in Podfile."
+    echo -e "${blue}No changes made to New Architecture settings in Podfile.${reset}"
   fi
 
   # Installing CocoaPods dependencies
-  echo "Installing CocoaPods dependencies..."
+  echo -e "${blue}Installing CocoaPods dependencies...${reset}"
   pod install "${extra_args[@]}"
 }

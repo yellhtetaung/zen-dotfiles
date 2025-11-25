@@ -2,11 +2,13 @@
 
 # Aliases for development
 alias rnstart='npx react-native start'
-alias rninfo="npx react-native info"
 alias rnios='npx react-native run-ios'
 alias rnandroid='npx react-native run-android'
-alias rnasset="npx react-native-asset"
+alias rninfo="npx react-native info"
 alias rndoctor="npx react-native doctor"
+alias rnclean="npx react-native clean"
+alias rnasset="npx react-native-asset"
+alias rnpodinstall="npx podinstall"
 
 if [[ -d "$ZEN_DIR/react-native" ]]; then
 # Import ios.sh

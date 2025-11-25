@@ -4,23 +4,21 @@
 
 - Git clone the repository to your local machine.
 
-```
-git clone https://github.com/yellhtetaung/zen-dotfiles.git
-```
-
-- Navigate to the cloned repository directory.
-
-```
-cd zen-dotfiles
+```bash
+git clone https://github.com/yellhtetaung/zen-dotfiles.git ~/.config/zen
 ```
 
-- Run the installation script.
+- Add the following lines to your `~/.zprofile` or `~/.zshrc` (if you are using bash, then `~/.bash_profile` or `~/.bashrc`) config file
 
-```
-./install.sh
+```bash
+source "$HOME/.config/zen/init.sh"
 ```
 
-- Restart your terminal or run `source $HOME/.zprofile` to apply the changes.
+- Restart the terminal or run this command to apply this changes.
+
+```bash
+source ~/.zprofile
+```
 
 ## Features
 
@@ -28,6 +26,49 @@ cd zen-dotfiles
 - Aliases for common commands and Git operations.
 - Custom prompt with Git branch and status information.
 - Custom functions for enhanced productivity.
+
+## Common Aliases
+
+| Command | Description                        |
+| :------ | :--------------------------------- |
+| ..      | Go to parent directory             |
+| ...     | Go to grandparent directory        |
+| ls      | `ls` comment with folder color     |
+| la      | `ls -a` comment with folder color  |
+| ll      | `ls -l` comment with folder color  |
+| lsa     | `ls -al` comment with folder color |
+| reload  | Reload the dotfiles configuration  |
+
+## Git Aliases
+
+| Command    | Description                                |
+| :--------- | :----------------------------------------- |
+| g          | git                                        |
+| gp         | git push                                   |
+| gpl        | git pull                                   |
+| gc         | git commit                                 |
+| ga         | git add                                    |
+| gaa        | git add -A                                 |
+| gst        | git status                                 |
+| gb         | git branch                                 |
+| gl         | git log --oneline --graph --decorate --all |
+| gco        | git checkout                               |
+| gcb        | git checkout -b                            |
+| podinstall | Install pod dependencies                   |
+
+## React Native Aliases
+
+| Command      | Description                                      |
+| :----------- | :----------------------------------------------- |
+| rnstart      | Start the react native project                   |
+| rnios        | Run the react native project on iOS simulator    |
+| rnandroid    | Run the react native project on Android emulator |
+| rninfo       | Show react native project information            |
+| rndoctor     | Run react native doctor command                  |
+| rnclean      | Clean the react native project                   |
+| rnasset      | Generate react native assets                     |
+| rnpodinstall | Install react native pod dependencies            |
+| podinstall   | Install pod dependencies                         |
 
 ## Contributing
 

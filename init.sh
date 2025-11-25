@@ -8,11 +8,6 @@ if [[ -d "$ZEN_DIR/alias" ]]; then
   fi
 fi
 
-# For NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
 # For Ruby Gems
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
@@ -34,9 +29,11 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 # Android SDK and NDK setup
 export ANDROID_HOME=$HOME/Library/Android/sdk # Adjust if your SDK is in a different location
 export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/27.1.12297006 # Replace {your_ndk_version} with the specific NDK version you want to use (e.g., 25.1.8765903)
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 
 # Add Android SDK and NDK tools to PATH
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 export PATH=$PATH:$ANDROID_NDK_HOME
 

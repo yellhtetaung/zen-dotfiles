@@ -12,4 +12,4 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # Common Commands
-alias load='source $HOME/.zprofile'
+alias reload='source $HOME/.zprofile'
