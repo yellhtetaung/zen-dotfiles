@@ -2,8 +2,10 @@
 
 ZEN_DIR="${ZEN_DIR:-$HOME/.config/zen}"
 
-if [[ -f "$ZEN_DIR/alias.sh" ]]; then
-  source "$ZEN_DIR/alias.sh"
+if [[ -d "$ZEN_DIR/alias" ]]; then
+  if [[ -f "$ZEN_DIR/alias/init.sh" ]]; then
+    source "$ZEN_DIR/alias/init.sh"
+  fi
 fi
 
 # For NVM
